@@ -1,0 +1,131 @@
+/* ===================================================================
+   LAYOUT.CSS
+   Aqui cuidamos de "onde as coisas ficam na tela": header, hero,
+   grid de módulos, footer. Se base.css é a caixa de tintas,
+   layout.css é o desenho por cima.
+   =================================================================== */
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;      /* centraliza o conteúdo na página */
+  padding: 0 var(--espaco-3);
+}
+
+/* ---------- HEADER ---------- */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--espaco-2) 0;
+  border-bottom: 1px solid var(--cor-borda);
+  position: sticky; /* header "gruda" no topo ao rolar a página */
+  top: 0;
+  background-color: var(--cor-fundo);
+  z-index: 10;
+}
+
+.header__marca {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-1);
+  font-family: var(--fonte-mono);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* o "ponto" verde antes da logo, como um indicador de status "online" */
+.header__marca::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--cor-destaque);
+  box-shadow: 0 0 8px var(--cor-destaque);
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-3);
+}
+
+/* ---------- HERO (terminal simulado) ---------- */
+.hero {
+  padding: var(--espaco-5) 0;
+  display: grid;
+  gap: var(--espaco-4);
+}
+
+.hero__titulo {
+  font-size: clamp(2rem, 5vw, 3rem); /* responsivo: cresce e encolhe com a tela */
+  max-width: 20ch;
+}
+
+.hero__subtitulo {
+  color: var(--cor-texto-suave);
+  font-size: 1.15rem;
+  max-width: 55ch;
+  margin-top: var(--espaco-2);
+}
+
+.hero__acoes {
+  display: flex;
+  gap: var(--espaco-2);
+  margin-top: var(--espaco-3);
+}
+
+/* ---------- GRID DE MÓDULOS ---------- */
+.secao {
+  padding: var(--espaco-5) 0;
+}
+
+.secao__cabecalho {
+  margin-bottom: var(--espaco-4);
+}
+
+.secao__eyebrow {
+  font-family: var(--fonte-mono);
+  color: var(--cor-destaque);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.grid-modulos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--espaco-3);
+}
+
+/* ---------- FOOTER ---------- */
+.footer {
+  border-top: 1px solid var(--cor-borda);
+  padding: var(--espaco-4) 0;
+  margin-top: var(--espaco-5);
+  color: var(--cor-texto-suave);
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--espaco-2);
+}
+
+.footer__links {
+  display: flex;
+  gap: var(--espaco-3);
+}
+
+/* ---------- RESPONSIVO ---------- */
+@media (max-width: 640px) {
+  .header__nav {
+    gap: var(--espaco-2);
+  }
+  .hero {
+    padding: var(--espaco-4) 0;
+  }
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lógica de Programação com JS</title>
+  <meta name="description" content="Curso gratuito de lógica de programação usando JavaScript, do zero ao avançado.">
+
+  <!-- Fontes: JetBrains Mono (visual terminal) e Inter (leitura confortável) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Ordem importa: base define as variáveis, layout usa elas pra estruturar,
+       componentes usa elas pra estilizar as peças menores. -->
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/componentes.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; width:100%;">
+      <div class="header__marca">logica.js</div>
+      <nav class="header__nav">
+        <a href="#modulos">Módulos</a>
+        <button id="botao-tema" class="toggle-tema">● modo escuro</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- HERO: o "terminal" é o elemento de assinatura da página -->
+    <section class="hero">
+      <div>
+        <h1 class="hero__titulo">Aprenda a pensar como um programador.</h1>
+        <p class="hero__subtitulo">
+          Um curso gratuito de lógica de programação, ensinado com exemplos
+          reais em JavaScript. Do primeiro <code>console.log</code> até
+          estruturas mais avançadas — no seu ritmo.
+        </p>
+        <div class="hero__acoes">
+          <a href="#modulos" class="botao botao--primario">Começar agora</a>
+          <a href="https://github.com/gustavodeoliveiradev" target="_blank" rel="noopener" class="botao botao--secundario">Ver no GitHub</a>
+        </div>
+      </div>
+
+      <div class="terminal">
+        <div class="terminal__barra">
+          <span class="terminal__bola"></span>
+          <span class="terminal__bola"></span>
+          <span class="terminal__bola"></span>
+        </div>
+        <div class="terminal__corpo">
+          <p class="terminal__linha">npm install logica-de-programacao</p>
+          <p class="terminal__linha">status: <span style="color: var(--cor-destaque);">pronto para aprender</span><span class="terminal__cursor"></span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO DE MÓDULOS -->
+    <section class="secao" id="modulos">
+      <div class="secao__cabecalho">
+        <p class="secao__eyebrow">Trilha de aprendizado</p>
+        <h2>Módulos do curso</h2>
+      </div>
+
+      <div class="grid-modulos">
+
+        <article class="card-modulo">
+          <span class="card-modulo__status card-modulo__status--disponivel">Disponível</span>
+          <h3 class="card-modulo__titulo">O que é lógica de programação</h3>
+          <p class="card-modulo__descricao">Entenda como um computador "pensa" e por que lógica vem antes de qualquer linguagem.</p>
+          <a href="#" class="botao botao--secundario">Acessar módulo</a>
+        </article>
+
+        <article class="card-modulo">
+          <span class="card-modulo__status">Em breve</span>
+          <h3 class="card-modulo__titulo">Variáveis e tipos de dados</h3>
+          <p class="card-modulo__descricao">Como guardar e manipular informações no seu código.</p>
+        </article>
+
+        <article class="card-modulo">
+          <span class="card-modulo__status">Em breve</span>
+          <h3 class="card-modulo__titulo">Condicionais</h3>
+          <p class="card-modulo__descricao">Ensine seu código a tomar decisões com if, else e switch.</p>
+        </article>
+
+        <article class="card-modulo">
+          <span class="card-modulo__status">Em breve</span>
+          <h3 class="card-modulo__titulo">Loops e repetição</h3>
+          <p class="card-modulo__descricao">Automatize tarefas repetitivas com for e while.</p>
+        </article>
+
+        <article class="card-modulo">
+          <span class="card-modulo__status">Em breve</span>
+          <h3 class="card-modulo__titulo">Funções</h3>
+          <p class="card-modulo__descricao">Organize seu código em blocos reutilizáveis.</p>
+        </article>
+
+        <article class="card-modulo">
+          <span class="card-modulo__status">Em breve</span>
+          <h3 class="card-modulo__titulo">Arrays e objetos</h3>
+          <p class="card-modulo__descricao">As estruturas de dados mais usadas no dia a dia de um dev.</p>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap: 1rem; width:100%;">
+      <span>Criado por Gustavo de Oliveira</span>
+      <div class="footer__links">
+        <a href="https://github.com/gustavodeoliveiradev" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/lgustavodeoliveira/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:gustavodeoliveira.dev@gmail.com">E-mail</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- O script fica no final do body pra garantir que o HTML já
+       carregou antes do JS tentar encontrar os elementos na página. -->
+  <script src="assets/js/tema.js"></script>
+</body>
+</html>
