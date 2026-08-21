@@ -154,3 +154,104 @@
 .toggle-tema:hover {
   border-color: var(--cor-destaque);
 }
+
+/* ---------- DROPDOWN DE MÓDULOS ---------- */
+
+/* position: relative aqui é o que permite que o menu (position: absolute)
+   se posicione "grudado" embaixo do botão, e não solto na tela. */
+.dropdown {
+  position: relative;
+}
+
+.dropdown__gatilho {
+  background: none;
+  border: 1px solid transparent;
+  color: var(--cor-texto);
+  font-family: var(--fonte-mono);
+  font-size: 0.9rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: var(--raio);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.dropdown__gatilho:hover {
+  border-color: var(--cor-borda);
+}
+
+/* a setinha gira quando o menu está aberto - ver .dropdown--aberto abaixo */
+.dropdown__seta {
+  transition: transform 0.15s ease;
+  font-size: 0.7rem;
+}
+
+.dropdown__menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 280px;
+  background-color: var(--cor-fundo-elevado);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  padding: var(--espaco-1);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  /* Por padrão o menu fica escondido. Em vez de display:none (que não
+     anima), usamos opacidade + um pequeno deslocamento, e "desligamos"
+     os cliques nele com pointer-events. Fica pronto pra transição suave. */
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+/* Essa classe é adicionada/removida via JavaScript (navegacao.js)
+   quando o botão é clicado. */
+.dropdown--aberto .dropdown__menu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.dropdown--aberto .dropdown__seta {
+  transform: rotate(180deg);
+}
+
+.dropdown__item {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-1);
+  padding: 0.55rem 0.7rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: var(--cor-texto);
+}
+
+a.dropdown__item:hover {
+  background-color: var(--cor-destaque-fraco);
+  text-decoration: none;
+  color: var(--cor-destaque);
+}
+
+.dropdown__item--atual {
+  color: var(--cor-destaque);
+  font-weight: 600;
+}
+
+.dropdown__item--desabilitado {
+  color: var(--cor-texto-suave);
+  cursor: default;
+  opacity: 0.6;
+}
+
+.dropdown__item-numero {
+  font-family: var(--fonte-mono);
+  font-size: 0.75rem;
+  color: var(--cor-texto-suave);
+  min-width: 1.5em;
+}

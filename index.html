@@ -22,7 +22,14 @@
     <div class="container" style="display:flex; align-items:center; justify-content:space-between; width:100%;">
       <div class="header__marca">logica.js</div>
       <nav class="header__nav">
-        <a href="#modulos">Módulos</a>
+        <!-- Estrutura do dropdown: o JS (navegacao.js) vai preencher
+             o .dropdown__menu com os módulos automaticamente. -->
+        <div class="dropdown">
+          <button class="dropdown__gatilho" aria-haspopup="true" aria-expanded="false">
+            Módulos <span class="dropdown__seta">▾</span>
+          </button>
+          <div class="dropdown__menu" role="menu"></div>
+        </div>
         <button id="botao-tema" class="toggle-tema">● modo escuro</button>
       </nav>
     </div>
@@ -71,7 +78,7 @@
           <span class="card-modulo__status card-modulo__status--disponivel">Disponível</span>
           <h3 class="card-modulo__titulo">O que é lógica de programação</h3>
           <p class="card-modulo__descricao">Entenda como um computador "pensa" e por que lógica vem antes de qualquer linguagem.</p>
-          <a href="#" class="botao botao--secundario">Acessar módulo</a>
+          <a href="modulos/modulo-01-intro/index.html" class="botao botao--secundario">Acessar módulo</a>
         </article>
 
         <article class="card-modulo">
@@ -123,5 +130,6 @@
   <!-- O script fica no final do body pra garantir que o HTML já
        carregou antes do JS tentar encontrar os elementos na página. -->
   <script src="assets/js/tema.js"></script>
+  <script src="assets/js/navegacao.js"></script>
 </body>
 </html>
