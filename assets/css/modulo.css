@@ -1,0 +1,131 @@
+/* ===================================================================
+   MODULO.CSS
+   Estilos específicos das páginas de conteúdo (dentro de modulos/*).
+   Fica separado de componentes.css porque só é usado nessas páginas,
+   não no site inteiro — outra forma de manter a modularidade.
+   =================================================================== */
+
+.trilha {
+  padding: var(--espaco-1) 0;
+  color: var(--cor-texto-suave);
+  font-size: 0.85rem;
+  font-family: var(--fonte-mono);
+}
+
+.modulo-cabecalho {
+  padding: var(--espaco-3) 0 var(--espaco-4);
+}
+
+.modulo-cabecalho__eyebrow {
+  font-family: var(--fonte-mono);
+  color: var(--cor-destaque);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.modulo-cabecalho h1 {
+  margin-top: var(--espaco-1);
+}
+
+/* Duas colunas lado a lado (texto | código) em telas largas.
+   auto-fit + minmax faz elas empilharem sozinhas em telas estreitas,
+   sem precisar de media query separada pra isso. */
+.modulo-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(320px, 1fr);
+  gap: var(--espaco-4);
+  align-items: start;
+  padding-bottom: var(--espaco-5);
+}
+
+@media (max-width: 800px) {
+  .modulo-layout {
+    grid-template-columns: 1fr; /* empilha em uma coluna só no celular */
+  }
+}
+
+.modulo-texto h2 {
+  margin-top: var(--espaco-3);
+  margin-bottom: var(--espaco-1);
+  font-size: 1.2rem;
+}
+
+.modulo-texto h2:first-child {
+  margin-top: 0;
+}
+
+.modulo-texto p {
+  margin-bottom: var(--espaco-2);
+  color: var(--cor-texto);
+}
+
+.modulo-texto ul {
+  margin: 0 0 var(--espaco-2) var(--espaco-3);
+  color: var(--cor-texto);
+}
+
+/* A coluna de código "gruda" no topo ao rolar, tipo documentação
+   moderna (MDN, docs.python.org) — assim o exemplo fica sempre visível
+   enquanto se lê o texto ao lado. */
+.modulo-codigo {
+  position: sticky;
+  top: calc(var(--espaco-2) + 60px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-2);
+}
+
+.bloco-codigo {
+  background-color: var(--cor-fundo-elevado);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  overflow: hidden;
+}
+
+.bloco-codigo__barra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--espaco-1) var(--espaco-2);
+  background-color: var(--cor-borda);
+  font-family: var(--fonte-mono);
+  font-size: 0.8rem;
+  color: var(--cor-texto-suave);
+}
+
+.bloco-codigo pre {
+  padding: var(--espaco-2);
+  overflow-x: auto;
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
+/* "Tokens" de sintaxe coloridos manualmente (sem biblioteca externa) */
+.tok-comentario { color: var(--cor-texto-suave); font-style: italic; }
+.tok-string     { color: var(--cor-aviso); }
+.tok-chave      { color: var(--cor-destaque); font-weight: 600; }
+
+.bloco-console {
+  background-color: #000000dd;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: var(--espaco-2);
+  font-family: var(--fonte-mono);
+  font-size: 0.85rem;
+  min-height: 60px;
+  color: #a5d6a7;
+}
+
+.bloco-console__linha::before {
+  content: '› ';
+  color: var(--cor-texto-suave);
+}
+
+.modulo-rodape-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--espaco-3) 0 var(--espaco-5);
+  border-top: 1px solid var(--cor-borda);
+  margin-top: var(--espaco-3);
+}
