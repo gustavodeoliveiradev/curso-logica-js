@@ -3,25 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Módulo 01 — O que é lógica de programação | logica.js</title>
-  <meta name="description" content="Entenda o que é lógica de programação e como um computador processa instruções, com exemplo prático em JavaScript.">
+  <title>Lógica de Programação com JS</title>
+  <meta name="description" content="Curso gratuito de lógica de programação usando JavaScript, do zero ao avançado.">
 
+  <!-- Fontes: JetBrains Mono (visual terminal) e Inter (leitura confortável) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 
-  <!-- Caminhos com ../../ porque esta página está dois níveis
-       abaixo da raiz (modulos/modulo-01-intro/index.html) -->
-  <link rel="stylesheet" href="../../assets/css/base.css">
-  <link rel="stylesheet" href="../../assets/css/layout.css">
-  <link rel="stylesheet" href="../../assets/css/componentes.css">
-  <link rel="stylesheet" href="../../assets/css/modulo.css">
+  <!-- Ordem importa: base define as variáveis, layout usa elas pra estruturar,
+       componentes usa elas pra estilizar as peças menores. -->
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/componentes.css">
 </head>
 <body>
 
   <header class="header">
     <div class="container" style="display:flex; align-items:center; justify-content:space-between; width:100%;">
-      <a href="../../index.html" class="header__marca" style="color: inherit; text-decoration:none;">logica.js</a>
+      <div class="header__marca">logica.js</div>
       <nav class="header__nav">
+        <!-- Estrutura do dropdown: o JS (navegacao.js) vai preencher
+             o .dropdown__menu com os módulos automaticamente. -->
         <div class="dropdown">
           <button class="dropdown__gatilho" aria-haspopup="true" aria-expanded="false">
             Módulos <span class="dropdown__seta">▾</span>
@@ -35,95 +37,82 @@
 
   <main class="container">
 
-    <p class="trilha">
-      <a href="../../index.html">curso</a> / módulo 01
-    </p>
-
-    <div class="modulo-cabecalho">
-      <p class="modulo-cabecalho__eyebrow">Módulo 01</p>
-      <h1>O que é lógica de programação</h1>
-    </div>
-
-    <div class="modulo-layout">
-
-      <!-- COLUNA DA ESQUERDA: explicação teórica -->
-      <div class="modulo-texto">
-
-        <h2>Um computador só segue instruções</h2>
-        <p>
-          Programar não é decorar comandos de uma linguagem. É aprender a
-          quebrar um problema em passos pequenos e claros o suficiente
-          pra que um computador — que não deduz nada sozinho — consiga
-          seguir. Isso é <strong>lógica de programação</strong>.
+    <!-- HERO: o "terminal" é o elemento de assinatura da página -->
+    <section class="hero">
+      <div>
+        <h1 class="hero__titulo">Aprenda a pensar como um programador.</h1>
+        <p class="hero__subtitulo">
+          Um curso gratuito de lógica de programação, ensinado com exemplos
+          reais em JavaScript. Do primeiro <code>console.log</code> até
+          estruturas mais avançadas — no seu ritmo.
         </p>
-
-        <h2>Entrada, processamento e saída</h2>
-        <p>
-          Quase todo programa segue esse fluxo:
-        </p>
-        <ul>
-          <li><strong>Entrada</strong>: os dados que o programa recebe (um número digitado, um clique, um arquivo)</li>
-          <li><strong>Processamento</strong>: o que o programa faz com esses dados (calcula, compara, transforma)</li>
-          <li><strong>Saída</strong>: o resultado que o programa devolve (um texto na tela, um som, um arquivo salvo)</li>
-        </ul>
-
-        <h2>O que é um algoritmo?</h2>
-        <p>
-          Um algoritmo é uma sequência finita e ordenada de passos pra
-          resolver um problema. Uma receita de bolo é um algoritmo.
-          Um tutorial de troca de pneu é um algoritmo. No código ao
-          lado, você vai ver um algoritmo bem simples: descobrir se
-          um número é par ou ímpar.
-        </p>
-
-        <h2>Testando na prática</h2>
-        <p>
-          Clique em <strong>"▶ Executar"</strong> no bloco de código ao
-          lado. O JavaScript de verdade vai rodar a função
-          <code>verificarSePar()</code> e mostrar o resultado logo
-          abaixo, no console simulado.
-        </p>
-
+        <div class="hero__acoes">
+          <a href="#modulos" class="botao botao--primario">Começar agora</a>
+          <a href="https://github.com/gustavodeoliveiradev" target="_blank" rel="noopener" class="botao botao--secundario">Ver no GitHub</a>
+        </div>
       </div>
 
-      <!-- COLUNA DA DIREITA: código de exemplo + console interativo -->
-      <div class="modulo-codigo">
-
-        <div class="bloco-codigo">
-          <div class="bloco-codigo__barra">
-            <span>exemplo.js</span>
-            <button id="botao-executar" class="botao botao--primario" style="padding: 0.3rem 0.8rem; font-size: 0.8rem;">▶ Executar</button>
-          </div>
-          <pre><code><span class="tok-comentario">// Recebe um número e diz se ele é par ou ímpar</span>
-<span class="tok-chave">function</span> verificarSePar(numero) {
-  <span class="tok-comentario">// O resto da divisão por 2 revela isso</span>
-  <span class="tok-chave">const</span> resto = numero % 2;
-
-  <span class="tok-chave">if</span> (resto === 0) {
-    <span class="tok-chave">return</span> <span class="tok-string">`${numero} é par`</span>;
-  } <span class="tok-chave">else</span> {
-    <span class="tok-chave">return</span> <span class="tok-string">`${numero} é ímpar`</span>;
-  }
-}</code></pre>
+      <div class="terminal">
+        <div class="terminal__barra">
+          <span class="terminal__bola"></span>
+          <span class="terminal__bola"></span>
+          <span class="terminal__bola"></span>
         </div>
-
-        <div class="bloco-codigo">
-          <div class="bloco-codigo__barra">
-            <span>console</span>
-          </div>
-          <div id="console-saida" class="bloco-console">
-            <p class="bloco-console__linha" style="opacity:0.5;">clique em "Executar" pra ver o resultado aqui</p>
-          </div>
+        <div class="terminal__corpo">
+          <p class="terminal__linha">npm install logica-de-programacao</p>
+          <p class="terminal__linha">status: <span style="color: var(--cor-destaque);">pronto para aprender</span><span class="terminal__cursor"></span></p>
         </div>
+      </div>
+    </section>
 
+    <!-- SEÇÃO DE MÓDULOS -->
+    <section class="secao" id="modulos">
+      <div class="secao__cabecalho">
+        <p class="secao__eyebrow">Trilha de aprendizado</p>
+        <h2>Módulos do curso</h2>
       </div>
 
-    </div>
+      <div class="grid-modulos">
 
-    <div class="modulo-rodape-nav">
-      <a href="../../index.html" class="botao botao--secundario">← Voltar para os módulos</a>
-      <span class="botao botao--secundario" style="opacity:0.5; cursor:default;">Próximo módulo (em breve) →</span>
-    </div>
+        <article class="card-modulo">
+          <span class="card-modulo__status card-modulo__status--disponivel">Disponível</span>
+          <h3 class="card-modulo__titulo">O que é lógica de programação</h3>
+          <p class="card-modulo__descricao">Entenda como um computador "pensa" e por que lógica vem antes de qualquer linguagem.</p>
+          <a href="modulos/modulo-01-intro/index.html" class="botao botao--secundario">Acessar módulo</a>
+        </article>
+
+        <article class="card-modulo">
+          <span class="card-modulo__status">Em breve</span>
+          <h3 class="card-modulo__titulo">Variáveis e tipos de dados</h3>
+          <p class="card-modulo__descricao">Como guardar e manipular informações no seu código.</p>
+        </article>
+
+        <article class="card-modulo">
+          <span class="card-modulo__status">Em breve</span>
+          <h3 class="card-modulo__titulo">Condicionais</h3>
+          <p class="card-modulo__descricao">Ensine seu código a tomar decisões com if, else e switch.</p>
+        </article>
+
+        <article class="card-modulo">
+          <span class="card-modulo__status">Em breve</span>
+          <h3 class="card-modulo__titulo">Loops e repetição</h3>
+          <p class="card-modulo__descricao">Automatize tarefas repetitivas com for e while.</p>
+        </article>
+
+        <article class="card-modulo">
+          <span class="card-modulo__status">Em breve</span>
+          <h3 class="card-modulo__titulo">Funções</h3>
+          <p class="card-modulo__descricao">Organize seu código em blocos reutilizáveis.</p>
+        </article>
+
+        <article class="card-modulo">
+          <span class="card-modulo__status">Em breve</span>
+          <h3 class="card-modulo__titulo">Arrays e objetos</h3>
+          <p class="card-modulo__descricao">As estruturas de dados mais usadas no dia a dia de um dev.</p>
+        </article>
+
+      </div>
+    </section>
 
   </main>
 
@@ -138,8 +127,9 @@
     </div>
   </footer>
 
-  <script src="../../assets/js/tema.js"></script>
-  <script src="../../assets/js/navegacao.js"></script>
-  <script src="modulo-01.js"></script>
+  <!-- O script fica no final do body pra garantir que o HTML já
+       carregou antes do JS tentar encontrar os elementos na página. -->
+  <script src="assets/js/tema.js"></script>
+  <script src="assets/js/navegacao.js"></script>
 </body>
 </html>
