@@ -22,7 +22,8 @@ curso-logica-js/
 - [x] Etapa 1 — Fundação (estrutura, landing page, sistema de tema)
 - [x] Etapa 2 — Layout base / navegação entre módulos (menu dropdown)
 - [x] Etapa 3 — Primeiro módulo de conteúdo (Módulo 01, com exemplo interativo)
-- [ ] Etapa 4 — Sistema de progresso do aluno
+- [x] Etapa 4 — Sistema de progresso do aluno (localStorage, barra de progresso, selo nos cards e no dropdown)
+- [ ] Etapa 5 — Módulos adicionais
 - [ ] Etapa 4 — Sistema de progresso do aluno
 - [ ] Etapa 5 — Módulos adicionais
 - [ ] Etapa 6 — Responsividade final e deploy

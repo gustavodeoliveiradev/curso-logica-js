@@ -47,3 +47,39 @@ if (botaoExecutar) {
     });
   });
 }
+
+// -------------------------------------------------------------
+// BOTÃO "MARCAR COMO CONCLUÍDO"
+// As funções moduloEstaConcluido, marcarModuloComoConcluido e
+// desmarcarModulo vêm do progresso.js, carregado antes deste arquivo.
+// -------------------------------------------------------------
+const SLUG_DESTE_MODULO = 'modulo-01-intro';
+const botaoConcluir = document.getElementById('botao-concluir');
+
+// Atualiza o texto/aparência do botão conforme o estado atual salvo.
+function atualizarBotaoConcluir() {
+  if (moduloEstaConcluido(SLUG_DESTE_MODULO)) {
+    botaoConcluir.textContent = '✓ Módulo concluído';
+    botaoConcluir.classList.add('botao--concluido');
+  } else {
+    botaoConcluir.textContent = 'Marcar como concluído';
+    botaoConcluir.classList.remove('botao--concluido');
+  }
+}
+
+if (botaoConcluir) {
+  // Assim que a página carrega, o botão já reflete o que foi salvo
+  // em uma visita anterior (mesma lógica usada no toggle de tema).
+  atualizarBotaoConcluir();
+
+  botaoConcluir.addEventListener('click', function () {
+    // Se já está concluído, o clique desmarca. Se não está, marca.
+    // Isso transforma o botão em um "toggle", igual o de tema.
+    if (moduloEstaConcluido(SLUG_DESTE_MODULO)) {
+      desmarcarModulo(SLUG_DESTE_MODULO);
+    } else {
+      marcarModuloComoConcluido(SLUG_DESTE_MODULO);
+    }
+    atualizarBotaoConcluir();
+  });
+}

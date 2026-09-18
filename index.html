@@ -70,42 +70,48 @@
       <div class="secao__cabecalho">
         <p class="secao__eyebrow">Trilha de aprendizado</p>
         <h2>Módulos do curso</h2>
+        <div class="barra-progresso-container">
+          <div class="barra-progresso">
+            <div class="barra-progresso__preenchimento" id="progresso-preenchimento"></div>
+          </div>
+          <p class="barra-progresso__texto" id="progresso-texto">0 de 6 módulos concluídos</p>
+        </div>
       </div>
 
       <div class="grid-modulos">
 
-        <article class="card-modulo">
+        <article class="card-modulo" data-modulo="modulo-01-intro">
           <span class="card-modulo__status card-modulo__status--disponivel">Disponível</span>
           <h3 class="card-modulo__titulo">O que é lógica de programação</h3>
           <p class="card-modulo__descricao">Entenda como um computador "pensa" e por que lógica vem antes de qualquer linguagem.</p>
           <a href="modulos/modulo-01-intro/index.html" class="botao botao--secundario">Acessar módulo</a>
         </article>
 
-        <article class="card-modulo">
+        <article class="card-modulo" data-modulo="modulo-02-variaveis">
           <span class="card-modulo__status">Em breve</span>
           <h3 class="card-modulo__titulo">Variáveis e tipos de dados</h3>
           <p class="card-modulo__descricao">Como guardar e manipular informações no seu código.</p>
         </article>
 
-        <article class="card-modulo">
+        <article class="card-modulo" data-modulo="modulo-03-condicionais">
           <span class="card-modulo__status">Em breve</span>
           <h3 class="card-modulo__titulo">Condicionais</h3>
           <p class="card-modulo__descricao">Ensine seu código a tomar decisões com if, else e switch.</p>
         </article>
 
-        <article class="card-modulo">
+        <article class="card-modulo" data-modulo="modulo-04-loops">
           <span class="card-modulo__status">Em breve</span>
           <h3 class="card-modulo__titulo">Loops e repetição</h3>
           <p class="card-modulo__descricao">Automatize tarefas repetitivas com for e while.</p>
         </article>
 
-        <article class="card-modulo">
+        <article class="card-modulo" data-modulo="modulo-05-funcoes">
           <span class="card-modulo__status">Em breve</span>
           <h3 class="card-modulo__titulo">Funções</h3>
           <p class="card-modulo__descricao">Organize seu código em blocos reutilizáveis.</p>
         </article>
 
-        <article class="card-modulo">
+        <article class="card-modulo" data-modulo="modulo-06-arrays">
           <span class="card-modulo__status">Em breve</span>
           <h3 class="card-modulo__titulo">Arrays e objetos</h3>
           <p class="card-modulo__descricao">As estruturas de dados mais usadas no dia a dia de um dev.</p>
@@ -130,6 +136,8 @@
   <!-- O script fica no final do body pra garantir que o HTML já
        carregou antes do JS tentar encontrar os elementos na página. -->
   <script src="assets/js/tema.js"></script>
+  <script src="assets/js/progresso.js"></script>
   <script src="assets/js/navegacao.js"></script>
+  <script src="assets/js/progresso-ui.js"></script>
 </body>
 </html>

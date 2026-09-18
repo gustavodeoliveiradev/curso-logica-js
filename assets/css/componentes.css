@@ -255,3 +255,46 @@ a.dropdown__item:hover {
   color: var(--cor-texto-suave);
   min-width: 1.5em;
 }
+
+.dropdown__item--concluido {
+  color: var(--cor-destaque);
+}
+
+/* ---------- PROGRESSO DO ALUNO ---------- */
+
+.barra-progresso-container {
+  margin-top: var(--espaco-2);
+  max-width: 320px;
+}
+
+.barra-progresso {
+  height: 8px;
+  background-color: var(--cor-borda);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.barra-progresso__preenchimento {
+  height: 100%;
+  background-color: var(--cor-destaque);
+  border-radius: 4px;
+  width: 0%; /* valor inicial - o JS ajusta isso conforme o progresso real */
+  transition: width 0.3s ease;
+}
+
+.barra-progresso__texto {
+  font-family: var(--fonte-mono);
+  font-size: 0.8rem;
+  color: var(--cor-texto-suave);
+  margin-top: var(--espaco-1);
+}
+
+.card-modulo__status--concluido {
+  color: var(--cor-destaque);
+}
+
+.botao--concluido {
+  background-color: var(--cor-destaque-fraco);
+  color: var(--cor-destaque);
+  border-color: var(--cor-destaque);
+}

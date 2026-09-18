@@ -62,10 +62,16 @@ function criarItemDeMenu(modulo, indice) {
   const classeExtra = slugAtual ? ' dropdown__item--atual' : '';
   const href = `${caminhoBaseModulos()}${modulo.slug}/index.html`;
 
+  // moduloEstaConcluido() vem do progresso.js, que precisa estar
+  // carregado ANTES deste arquivo no HTML (veja a ordem dos <script>).
+  const concluido = typeof moduloEstaConcluido === 'function' && moduloEstaConcluido(modulo.slug);
+  const classeConcluido = concluido ? ' dropdown__item--concluido' : '';
+  const marca = concluido ? '✓ ' : '';
+
   return `
-    <a href="${href}" class="dropdown__item${classeExtra}">
+    <a href="${href}" class="dropdown__item${classeExtra}${classeConcluido}">
       <span class="dropdown__item-numero">${numero}</span>
-      ${modulo.titulo}
+      ${marca}${modulo.titulo}
     </a>
   `;
 }
